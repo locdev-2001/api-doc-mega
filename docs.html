@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="assets/images/favicon.png" rel="icon"/>
+    <title>Mega 168 API Document</title>
+    <meta name="description" content="Your ThemeForest item Name and description">
+    <meta name="author" content="Mega168">
+
+    <!-- Stylesheet
+    ============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css"/>
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css"/>
+    <!-- Highlight Syntax -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css"/>
+    <style>
+        .alert-icon {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 0;
+            margin-left: 16px;
+            height: 16px;
+            width: 16px;
+            fill: #E6A200;
+        }
+
+        .alert-bar {
+            padding: 8px 16px 8px 40px;
+            color: #1A1A1A;
+            background-color: rgba(255, 180, 0, 0.2);
+            width: 100%;
+            position: relative;
+            display: block;
+            z-index: 2;
+            top: 0px;
+            border-radius: 3px;
+            height: 60px;
+        }
+
+        .closebtn {
+            color: #999999;
+            font-weight: bold;
+            float: right;
+            top: 50%;
+            font-size: 22px;
+            line-height: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        .highlight {
+            background: rgba(255, 180, 0, 0.2);
+            color: inherit;
+            box-shadow: inset 0px -3px 0px #FFB400;
+            word-break: break-word;
+        }
+
+        .alert-body {
+            position: absolute;
+            left: 48px;
+            right: 40px;
+            top: 20px;
+            bottom: 20px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .read-more-link {
+            color: #f26b3a;
+            font-weight: 600
+        }
+
+        .read-more-link:hover {
+            color: #dd5524;
+            cursor: pointer
+        }
+
+        .read-more-link:visited {
+            text-decoration: none;
+        }
+
+        .description-body {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .popover__wrapper {
+            position: inherit;
+            display: inline-block;
+        }
+
+        .popover__content {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            transform: translate(0, 5px);
+            background-color: #F7F7F7;
+            padding: 16px;
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            width: 313px;
+            border-radius: 3px;
+            display: block;
+        }
+
+        .popover__content:before {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            right: calc(50% - 16px / 2 + 0.5px);
+            top: -10px;
+            border-style: solid;
+            width: 16px;
+            height: 8px;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent #F7F7F7 transparent;
+            transition-duration: 0.3s;
+            transition-property: transform;
+        }
+
+        .popover__wrapper:hover .popover__content {
+            z-index: 10;
+            opacity: 1;
+            visibility: visible;
+            transform: translate(15px, 15px);
+            transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+        }
+
+        .popover__message {
+            text-align: left;
+            word-break: keep-all;
+            line-height: 1.6;
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+            font-family: Open Sans;
+            color: #1A1A1A;
+        }
+        .json{
+            margin-left: 30px !important;
+        }
+        .json div,.json  span,.json  applet,.json  object,.json  iframe,.json  h1,.json  h2,.json  h3,.json  h4,.json  h5,.json  h6,.json  p,.json  blockquote,.json  pre,.json  a,.json  abbr,.json  acronym,.json  address,.json  big,.json  cite,.json  code,.json  del,.json  dfn,.json  em,.json  img,.json  ins,.json  kbd,.json  q,.json  s,.json  samp,.json  small,.json  strike,.json  strong,.json  sub,.json  sup,.json  tt,.json  var,.json  b,.json  u,.json  i,.json  center,.json  dl,.json  dt,.json  dd,.json  ol,.json  ul,.json  li,.json  fieldset,.json  form,.json  label,.json  legend,.json  table,.json  caption,.json  tbody,.json  tfoot,.json  thead,.json  tr,.json  th,.json  td,.json  article,.json  aside,.json  canvas,.json  details,.json  embed,.json  figure,.json  figcaption,.json  footer,.json  header,.json  hgroup,.json  menu,.json  nav,.json  output,.json  ruby,.json  section,.json  summary,.json  time,.json  mark,.json  audio,.json  video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        .json>div{
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+    <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper">
+
+    <!-- Header
+    ============================ -->
+    <header id="header" class="sticky-top">
+        <!-- Navbar -->
+        <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">
+            <div class="container-fluid">
+                <!-- Sidebar Toggler -->
+                <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span
+                        class="w-75"></span><span class="w-50"></span></button>
+
+                <!-- Logo -->
+                <a class="logo ml-md-3" href="index.html" title="iDocs Template"> <img height="30" src="assets/images/logo.png" alt="MEGA168">
+                    <span style=" font-size: 20px !important; font-weight: 600; color: #d41616; " class="text-2 ml-2">v1.0</span></a>
+                <!-- Logo End -->
+
+                <!-- Navbar Toggler -->
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    </header>
+    <!-- Header End -->
+
+    <!-- Content
+    ============================ -->
+    <div id="content" role="main">
+
+        <!-- Sidebar Navigation
+        ============================ -->
+        <div class="idocs-navigation bg-light">
+            <ul class="nav flex-column ">
+                <li class="nav-item"><a class="nav-link active arrow" href="#introduction">Introduction</a>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="#connection_info">Connection Info</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#connection_setup">Connection Setup</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#flow_chart">Flow chart</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#responce_format">Responce Format</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#data_detail">Data detail</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#api_general_code">API general errors</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link arrow" href="#agent_api">Agent API</a>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="#downline_list">Downline List</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_detail">Downline detail</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_create">Downline create</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_update">Downline update</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_toggle_lock">Downline toggle lock</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_grade_point">Downline Grede point</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_collect_point">Downline Collect
+                            point</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_update_grosscom">Downline Update
+                            Grosscom</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#downline_update_max_bet_by_round">Downline
+                            Update max bet by round</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#get_link_access_game">Get Link access game</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link arrow" href="#all_error_list">All error list</a>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="#http_status_code">HTTP Status code</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#error_code">Error code</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Docs Content
+        ============================ -->
+        <div class="idocs-content">
+            <div class="container">
+
+                <!-- Installation
+                ============================ -->
+                <h1 id="introduction">Installation</h1>
+                <section id="connection_info">
+                    <h2>Connection Info</h2>
+                    <p class="lead"></p>
+                    <ol>
+                        <li><code>URL</code>:<code class="text-primary"> https://agent.mega168.casino/</code></li>
+                        <li><code>Info of access key:</code>
+                            <ul>
+                                <li><code>Access Key</code> - The key access to API</li>
+                                <li><code>Expire Time</code> - Expired time of access key </li>
+                                <li><code>Access IP</code> - IPv4 can access to API</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+
+                <section id="connection_setup">
+                    <h2>Connection setup</h2>
+                    <p class="lead">To connect to API, You need to set up a request follow the steps below</p>
+                    <ol>
+                        <li><b>Step 1</b>: Provide your Ip to setup connect to API</li>
+                        <li><b>Step 2</b>: setup access key in request header <br/><br/>
+                        <img src="assets/images/request-header.jpg" class="img-fluid">
+                        </li>
+                        <li><b>Step 3</b>: In each request, you need to provide a param named userAcionId. userActionId
+                            is is a master user or user belongs to a branch of the Master user. API operations will
+                            directly impact "Action User"</li>
+                    </ol>
+                </section>
+
+                <hr class="divider">
+
+                <section id="flow_chart">
+                    <h2>Flow chart</h2>
+                    <p class="lead">Follow action for Master,  Agent, player account.</p>
+                    <ol>
+                        <li><b>Master Account</b><br/><br/>
+                            <img src="assets/images/flow-master.jpg" class="img-fluid">
+                        </li>
+                        <li><b>Agent Account</b><br/><br/>
+                            <img src="assets/images/flow-agent.jpg" class="img-fluid">
+                        </li>
+                        <li><b>Player Account</b><br/><br/>
+                            <img src="assets/images/flow-player.jpg" class="img-fluid">
+                        </li>
+                    </ol>
+                </section>
+
+                <hr class="divider">
+
+                <section id="responce_format">
+                    <h2>Responce format</h2>
+                    <p class="lead">
+                        All responses for each request will have the following format</a>.
+                    </p>
+                    <table class="table table-bordered table-striped" >
+                        <tbody>
+                        <tr>
+                            <td width="30%">HTTP Status code</td>
+                            <td><code>200</code> <code>401</code> <code>500</code></td>
+                        </tr>
+                        <tr>
+                            <td width="30%">Response</td>
+                            <td>
+                                <div class="json ml-2">
+                                    <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                        <div>
+                                            <span style="color:#dcdcdc;">{</span>
+                                        </div>
+                                        <div>
+                                            <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span
+                                                style="color:#9cdcfe;">"code"</span><span
+                                                style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span
+                                                style="color:#b5cea8;"><< errorr code >></span><span style="color:#dcdcdc;">,</span>
+                                        </div>
+                                        <div>
+                                            <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span
+                                                style="color:#9cdcfe;">"data"</span><span
+                                                style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span
+                                                style="color:#ce9178;"><< Data of request >> </span>
+                                        </div>
+                                        <div>
+                                            <span style="color:#dcdcdc;">}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <hr class="divider">
+                <section id="data_detail">
+                    <h2>Data Detail</h2>
+                    <p class="lead">
+                        Detail of data response</a>.
+                    </p>
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td width="30%"><code>downline</code></td>
+                            <td>Object have info of downline, downline with pagging and 10 downline user/page. It have
+                            all info need to display in the list downline user with paging
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center"> User Info
+                            </td>
+                        <tr>
+                            <td width="30%"><code>id</code></td>
+                            <td>(number)Id of user </td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>username</code></td>
+                            <td>(String) username of user</td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>name</code></td>
+                            <td>(String) name of user </td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>status</code></td>
+                            <td>(int) status of user with: 1 active (unlock), 2 lock</td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>agencyLevel</code></td>
+                            <td>(int) level of user with: 2 - Master user, 3 - Sub master, 4 - Agent, 5 - Sub agent,
+                            6 - Player user</td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>codeName</code></td>
+                            <td>(String) code name of user with be created by parent codeName and counting number
+                                (agent: 00,00, ... 99 ) (player: 000, 001, ... 999) </td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>parentId</code></td>
+                            <td>(int) user id of upline user</td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>grossCom</code></td>
+                            <td>(double) the refund point for the betting point</td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>maxBetUserPoint</code></td>
+                            <td>(int) max point of user can use to bet with each round</td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>currentPoint</code></td>
+                            <td>(double) current point of user</td>
+                        </tr>
+                        <tr>
+                            <td width="30%"><code>currentUsd</code></td>
+                            <td>(double) current usd of user</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <hr class="divider">
+                <section id="api_general_code">
+                    <h2>API general errors</h2>
+                    <p class="lead">
+                        API general errors are the errors that are not specific to any particular API. These errors are
+                        common to all APIs. The following table lists the general errors that are common to all APIs.
+                        Detail of the error code <a href="#all_error_list">click here</a>.
+                    </p>
+                    <ul>
+                        <li>
+                            <table class="table table-bordered table-striped" style="max-width: 500px">
+                                <thead>
+                                <tr>
+                                    <th>error Code</th>
+                                    <th>Http status Code</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr> <td><code>800</code></td> <td><code>401</code></td> </tr>
+                                <tr> <td><code>801</code></td> <td><code>401</code></td> </tr>
+                                <tr> <td><code>802</code></td> <td><code>401</code></td> </tr>
+                                <tr> <td><code>803</code></td> <td><code>401</code></td> </tr>
+                                <tr> <td><code>804</code></td> <td><code>401</code></td> </tr>
+                                <tr> <td><code>805</code></td> <td><code>401</code></td> </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="divider">
+
+                <h1 id="agent_api">Agent API</h1>
+                <section id="downline_list">
+                    <h2>Downline List</h2>
+                    <p class="lead">The API facilitates seamless access to and retrieval of downline information
+                        associated with the 'Action User.' For instance, in the scenario where the action user assumes
+                        the role of a master user, the downline comprises the agents affiliated with that master user.
+                        This functionality provides a comprehensive means of efficiently managing and extracting
+                        pertinent information about the user's subordinate agents</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/list</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>page </code>: The page of list downline user</li>
+                                <li><code>filter </code>: Filter downline user with <code>"name"</code> or <code>"username"</code>
+                                    or <code>"codename"</code></li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-list.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"downline"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"current_page"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">[</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001134</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">ag11113"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">ag111"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-06T06:57:43.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-06T06:57:43.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102000"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"100000.00"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentUsd"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"first_deposit"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">null</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">],</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"first_page_url"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"https://agent.mega168.casino/api/agent/downline/list?page=1"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"from"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"last_page"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"last_page_url"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"https://agent.mega168.casino/api/agent/downline/list?page=1"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"links"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">[</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"url"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">null</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"label"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"&amp;laquo; Previous"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"active"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">false</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">},</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"url"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"https://agent.mega168.casino/api/agent/downline/list?page=1"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"label"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"1"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"active"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">true</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">},</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"url"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">null</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"label"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"Next &amp;raquo;"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"active"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">false</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">],</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"next_page_url"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">null</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"path"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"https://agent.mega168.casino/api/agent/downline/list"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"per_page"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"prev_page_url"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">null</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"to"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"total"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">},</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"user"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"agcms02"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"agcms02"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-01-25T09:18:55.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-02-03T09:05:56.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">4</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10000004</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0.003</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">100000</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>No Error for this API</li>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>800</code></td> <td><code>401</code></td> </tr>
+                                        <tr> <td><code>801</code></td> <td><code>401</code></td> </tr>
+                                        <tr> <td><code>802</code></td> <td><code>401</code></td> </tr>
+                                        <tr> <td><code>803</code></td> <td><code>401</code></td> </tr>
+                                        <tr> <td><code>804</code></td> <td><code>401</code></td> </tr>
+                                        <tr> <td><code>805</code></td> <td><code>401</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ol>
+                </section>
+
+                <hr class="divider">
+                <section id="downline_detail">
+                    <h2>Downline detail</h2>
+                    <p class="lead">The API get infomation of downline user</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/detail</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of downline user</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-detail.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10000005</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"agcms00"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"agcms00"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2023-12-14T09:31:14.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-02-03T09:05:56.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">4</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0101"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10000004</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0.0025</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">100000</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"100000.00"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentUsd"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"countOfPL"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">808</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10115</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10201</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10301</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+
+                <section id="downline_create">
+                    <h2>Downline create</h2>
+                    <p class="lead">The API create downline user</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/create</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>username </code>: username of downline user</li>
+                                <li><code>name </code>: name of downline user</li>
+                                <li><code>codeName </code>: number of codename downline user. Ex: if downline user is
+                                    an agent codename follow 00, 01 ... 99; if downline user is a play codename follow
+                                    000, 001, ... 999 </li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-create.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001135</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10101</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10117</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10118</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10123</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10124</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10125</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10126</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10305</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+
+                <section id="downline_update">
+                    <h2>Downline update</h2>
+                    <p class="lead">The API allow update info of downline user (only name of downline user)</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/update</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: The userId belongs to the downline user that needs updating.</li>
+                                <li><code>name </code>: The name will be update</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-update.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001135</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">1</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10115</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10117</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10201</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10301</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+
+                <section id="downline_toggle_lock">
+                    <h2>Downline toggle lock</h2>
+                    <p class="lead">The API toggle the status of downline user. If status is active (unlock) after toggle
+                        lock  the stutus will be change to lock; if status is lock after toggle lock the status will
+                        be change to active (unlock).  </p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/toggle-lock</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of downline user need witch to active or lock</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-toggle-lock.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001135</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">2</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-09T02:16:19.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10115</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10201</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10301</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+
+                <section id="downline_grade_point">
+                    <h2>Downline grade point</h2>
+                    <p class="lead">The API grants points to downline users, points are taken from the action user and
+                        added to the downline user's points</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/grade-point</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of downline user</li>
+                                <li><code>point </code>: The pont of action user send to downline user</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-grade-point.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001135</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">2</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-09T02:16:19.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"5000.00"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentUsd"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10115</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10116</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10201</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10301</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10302</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10302</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10303</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+
+                <section id="downline_collect_point">
+                    <h2>Downline collect point</h2>
+                    <p class="lead">The API collects the downline user's points, the points are taken from the downline
+                        user and added to the action user's points</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/detail</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of downline user</li>
+                                <li><code>point </code>: The point of downline user will be revoked</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-collect-point.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001135</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">2</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-09T02:16:19.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2000.00"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"currentUsd"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10115</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10116</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10201</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10301</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10302</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10302</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10304</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+
+                <section id="downline_update_grosscom">
+                    <h2>Downline update grosscom</h2>
+                    <p class="lead">The API set value of maximum points a user can use to play in a Round.</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/upadate-gross-com</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of downline user</li>
+                                <li><code>grossCom </code>: Gross com value set to downline user</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-update-grosscom.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001135</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">2</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-09T02:19:18.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0.002</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10115</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10301</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10119</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10201</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10120</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10121</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10122</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+                <section id="downline_update_max_bet_by_round">
+                    <h2>Downline update max bet by round</h2>
+                    <p class="lead">The API get infomation of downline user</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/downline/update-max-bet</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of downline user</li>
+                                <li><code>maxBet </code>: Maximum bet (point) of each user in each match </li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/downline-update-max-bet.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2" >
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"code"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"data"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"id"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001135</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"username"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"name"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"pl001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"status"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">2</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"created_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-08T17:40:30.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"updated_at"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"2024-03-09T02:20:14.000000Z"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"agencyLevel"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">6</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"codeName"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#ce9178;">"mg0102001"</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"parentId"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">10001069</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"grossCom"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">0.002</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#9cdcfe;">"maxBetUserPoint"</span><span style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span style="color:#b5cea8;">5000</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10115</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10201</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10301</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10130</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10131</code></td> <td><code>500</code></td> </tr>
+                                        <tr> <td><code>10132</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+                <section id="get_link_access_game">
+                    <h2>Getlink access game</h2>
+                    <p class="lead">The API get Url allow player access to game</p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/auth/link-access-gmae</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of downline user</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/get-link-access.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2">
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <div>
+                                        <span style="color:#dcdcdc;">{</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span
+                                            style="color:#9cdcfe;">"code"</span><span
+                                            style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span
+                                            style="color:#b5cea8;">200</span><span style="color:#dcdcdc;">,</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#f8f8f2;">&nbsp; &nbsp;&nbsp;</span><span
+                                            style="color:#9cdcfe;">"data"</span><span
+                                            style="color:#dcdcdc;">:</span><span style="color:#f8f8f2;"> </span><span
+                                            style="color:#ce9178;">"https://mega168.casino/login?secure=0d8d4f1f-6cc8-4667-ae96-e0f3ffd6490e&amp;user=pl001&amp;iframe=true"</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:#dcdcdc;">}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10306</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
+
+                <h1 id="all_error_list">Status Code</h1>
+                <section id="http_status_code">
+                    <h2>HTTP Status code</h2>
+                    <p class="lead"> HTTP status code response for each response </p>
+                    <ol>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Status Code</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>200</code></td>
+                                <td>Success responce</td>
+                            </tr>
+                            <tr>
+                                <td><code>401</code></td>
+                                <td>Request Unauthorized, request can not access this API</td>
+                            </tr>
+                            <tr>
+                                <td><code>500</code></td>
+                                <td>Request Error due to missing param or error during data processing</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </ol>
+                </section>
+
+                <section id="error_code">
+                    <h2>Error List</h2>
+                    <p class="lead">Detail of error code for each request</p>
+                    <ol>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>800</code></td>
+                                <td>API Access token expired</td>
+                            </tr>
+                            <tr>
+                                <td><code>801</code></td>
+                                <td>API Access Token does not exist</td>
+                            </tr>
+                            <tr>
+                                <td><code>802</code></td>
+                                <td>IP is not allowed access</td>
+                            </tr>
+                            <tr>
+                                <td><code>803</code></td>
+                                <td>Missing Parameter: Action User ID (actionUserId)</td>
+                            </tr>
+                            <tr>
+                                <td><code>804</code></td>
+                                <td>Action User Does Not Exist</td>
+                            </tr>
+                            <tr>
+                                <td><code>805</code></td>
+                                <td>Action User is Locked</td>
+                            </tr>
+                            <!--                        <tr>-->
+                            <!--                            <td><code>900</code></td>-->
+                            <!--                            <td>Username or Password Incorrect</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>901</code></td>-->
+                            <!--                            <td>Account Inactive</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>902</code></td>-->
+                            <!--                            <td>Account Locked</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>903</code></td>-->
+                            <!--                            <td>Account is Locked</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10100</code></td>-->
+                            <!--                            <td>Missing Parameter: User ID</td>-->
+                            <!--                        </tr>-->
+                            <tr>
+                                <td><code>10101</code></td>
+                                <td>Missing Parameter: Username</td>
+                            </tr>
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10102</code></td>-->
+                            <!--                            <td>Missing Parameter: Password</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10103</code></td>-->
+                            <!--                            <td>Missing Parameter: Old Password</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10104</code></td>-->
+                            <!--                            <td>Missing Parameter: New Password</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10105</code></td>-->
+                            <!--                            <td>Missing Parameter: Confirm Password</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10106</code></td>-->
+                            <!--                            <td>Password needs content: Digit, Uppercase, Lowercase, Special Character</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10107</code></td>-->
+                            <!--                            <td>Password Not Match</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10108</code></td>-->
+                            <!--                            <td>Old Password Not Correct</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10109</code></td>-->
+                            <!--                            <td>Missing Parameter: Security Code</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10110</code></td>-->
+                            <!--                            <td>Parameter Security Code Not a Number</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10111</code></td>-->
+                            <!--                            <td>Missing Parameter: Old Security Code</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10112</code></td>-->
+                            <!--                            <td>Missing Parameter: New Security Code</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10113</code></td>-->
+                            <!--                            <td>Missing Parameter: Security Code (Needs 6 Digits)</td>-->
+                            <!--                        </tr>-->
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10114</code></td>-->
+                            <!--                            <td>Missing Parameter: Old Security Code Not Correct</td>-->
+                            <!--                        </tr>-->
+                            <tr>
+                                <td><code>10115</code></td>
+                                <td>Missing Parameter: User ID (userId)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10116</code></td>
+                                <td>Missing Parameter: Point (point)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10117</code></td>
+                                <td>Missing Parameter: Name (name)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10118</code></td>
+                                <td>Missing Parameter: Codename (codeName)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10119</code></td>
+                                <td>Missing Parameter: Gross com (grossCom)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10120</code></td>
+                                <td>Parameter Gross com less than 0</td>
+                            </tr>
+                            <tr>
+                                <td><code>10121</code></td>
+                                <td>Gross com of user greater than Gross com of Action User</td>
+                            </tr>
+                            <tr>
+                                <td><code>10122</code></td>
+                                <td>Parameter Gross com is not a number</td>
+                            </tr>
+                            <tr>
+                                <td><code>10123</code></td>
+                                <td>Code name is exist</td>
+                            </tr>
+                            <tr>
+                                <td><code>10124</code></td>
+                                <td>Username is exist</td>
+                            </tr>
+                            <tr>
+                                <td><code>10125</code></td>
+                                <td>Code name needs to be like YY (like 00,01, ... 99)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10126</code></td>
+                                <td>Code name needs to be like YYY (000,001,002 ... 999)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10130</code></td>
+                                <td>Missing Parameter: Maxbet (maxBet)</td>
+                            </tr>
+                            <tr>
+                                <td><code>10131</code></td>
+                                <td>Parameter Maxbet less than 0</td>
+                            </tr>
+                            <tr>
+                                <td><code>10132</code></td>
+                                <td>Parameter Maxbet not a number</td>
+                            </tr>
+                            <tr>
+                                <td><code>10201</code></td>
+                                <td>User ID not exist</td>
+                            </tr>
+                            <!--                        <tr>-->
+                            <!--                            <td><code>10202</code></td>-->
+                            <!--                            <td>User Not Exist</td>-->
+                            <!--                        </tr>-->
+                            <tr>
+                                <td><code>10301</code></td>
+                                <td>User not in downline</td>
+                            </tr>
+                            <tr>
+                                <td><code>10302</code></td>
+                                <td>Grade point must be greater than 0</td>
+                            </tr>
+                            <tr>
+                                <td><code>10303</code></td>
+                                <td>Grade Point must be less than current Action User point</td>
+                            </tr>
+                            <tr>
+                                <td><code>10304</code></td>
+                                <td>Grade Point must be less than current Downline User point</td>
+                            </tr>
+                            <tr>
+                                <td><code>10305</code></td>
+                                <td>User Not an agent</td>
+                            </tr>
+                            <tr>
+                                <td><code>10306</code></td>
+                                <td>User Not a player</td>
+                            </tr>
+                        </table>
+                    </ol>
+                </section>
+
+                <hr class="divider">
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Content end -->
+
+    <!-- Footer
+    ============================ -->
+    <footer id="footer" class="section bg-dark footer-text-light">
+        <div class="container">
+        </div>
+    </footer>
+    <!-- Footer end -->
+
+</div>
+<!-- Document Wrapper end -->
+
+<!-- Back To Top -->
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script>
+<!-- Easing -->
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<!-- Magnific Popup -->
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
