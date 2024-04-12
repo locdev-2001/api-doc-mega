@@ -170,6 +170,38 @@
             padding: 10px;
         }
 
+        #referent-session ol {
+            list-style-type: none;
+            counter-reset: item;
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+        #referent-session ol li.nav-link{
+            padding: .2rem 1rem !important;
+        }
+
+        #referent-session ol > li {
+            display: table;
+            counter-increment: item;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #referent-session ol > li:before {
+            content: counters(item, ".") ". ";
+            display: table-cell;
+            padding-right: 0.6em;
+        }
+
+        #referent-session li ol > li {
+            margin: 0;
+        }
+
+        #referent-session li ol > li:before {
+            content: counters(item, ".") " ";
+        }
+
     </style>
 </head>
 
@@ -186,7 +218,7 @@
 </div>
 <!-- Preloader End -->
 
-<!-- Document Wrapper   
+<!-- Document Wrapper
 =============================== -->
 <div id="main-wrapper">
 
@@ -249,6 +281,8 @@
                             Update max bet by round</a></li>
                         <li class="nav-item"><a class="nav-link" href="#get_link_access_game">Get Link access game</a>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="#report">Report</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link arrow" href="#all_error_list">All error list</a>
@@ -263,21 +297,28 @@
         <!-- Docs Content
         ============================ -->
         <div class="idocs-content">
+
             <div class="container">
 
                 <!-- Installation
                 ============================ -->
                 <h1 id="introduction">Installation</h1>
+
+
                 <section id="connection_info">
                     <h2>Connection Info</h2>
                     <p class="lead"></p>
                     <ol>
-                        <li><code>URL</code>:<code class="text-primary"> https://agent.mega168.casino/</code></li>
+                        <li><code>Info</code>:This is an infomation for connect to test system of mega168.
+                            <b>The test version don't limit connect IP</b>.</li>
+                        <li><code>URL</code>:<code class="text-primary"> https://mega168demo.com/</code></li>
                         <li><code>Info of access key:</code>
                             <ul>
-                                <li><code>Access Key</code> - The key access to API</li>
-                                <li><code>Expire Time</code> - Expired time of access key </li>
-                                <li><code>Access IP</code> - IPv4 can access to API</li>
+                                <li><code>Master Account Id</code> - 10001097</li>
+                                <li><code>Username</code> - demo</li>
+                                <li><code>Access Key</code> - c7e5214e-bfb3-3cee-9b19-6c0c113be147</li>
+                                <li><code>Expire Time</code> - 2025-04-04 14:10:38 </li>
+                                <li><code>Access IP</code> - No limit IP access</li>
                             </ul>
                         </li>
                     </ol>
@@ -291,7 +332,7 @@
                     <ol>
                         <li><b>Step 1</b>: Provide your Ip to setup connect to API</li>
                         <li><b>Step 2</b>: setup access key in request header <br/><br/>
-                        <img src="assets/images/request-header.jpg" class="img-fluid">
+                            <img src="assets/images/request-header.jpg" class="img-fluid">
                         </li>
                         <li><b>Step 3</b>: In each request, you need to provide a param named userAcionId. userActionId
                             is is a master user or user belongs to a branch of the Master user. API operations will
@@ -378,7 +419,7 @@
                         <tr>
                             <td width="30%"><code>downline</code></td>
                             <td>Object have info of downline, downline with pagging and 10 downline user/page. It have
-                            all info need to display in the list downline user with paging
+                                all info need to display in the list downline user with paging
                             </td>
                         </tr>
                         <tr>
@@ -403,7 +444,7 @@
                         <tr>
                             <td width="30%"><code>agencyLevel</code></td>
                             <td>(int) level of user with: 2 - Master user, 3 - Sub master, 4 - Agent, 5 - Sub agent,
-                            6 - Player user</td>
+                                6 - Player user</td>
                         </tr>
                         <tr>
                             <td width="30%"><code>codeName</code></td>
@@ -1673,6 +1714,175 @@
                     </ol>
                 </section>
                 <hr class="divider">
+                <section id="report">
+                    <h2>Report</h2>
+                    <p class="lead">The API get report data of user (player) or report of all user in branch (Master or agent).<br/>
+                        If the user is a player, the returned data will be a list of that user's bets.<br/>
+                        If the user is not human, the data returned is the win or loss statistics of the downline
+                    </p>
+                    <ol>
+                        <li><code>Path </code>: <code> /api/agent/report/win-lost</code></li>
+                        <li><code>HEADERS </code>:
+                            <ul>
+                                <li><code>access-token </code>: <code> < Your Api Access token > </code></li>
+                            </ul>
+                        </li>
+                        <li><code>PARAMS</code>:
+                            <ul>
+                                <li><code>userActionId </code>: User ID is a master user or User ID belongs to a branch
+                                    of the Master user
+                                </li>
+                                <li><code>userId </code>: User id of reported user</li>
+                                <li><code>from </code>: The time begin filter</li>
+                                <li><code>to </code>: The time end filter</li>
+                            </ul>
+                        </li>
+                        <li><code>Sample request</code>:
+                            <ul>
+                                <li>
+                                    <img src="assets/images/report-win-lose.jpg" class="img-fluid">
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Result</code>: <code> < Sample result> </code >
+                            <div class="json ml-2">
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">{</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;code&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">200</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;data&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">{</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;10001080&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">[</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">{</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;turnOver&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">2080</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;profit&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">362.79999999999995</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;grossCom&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">0</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">}</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">]</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">}</span></span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background:#212121"><span style="line-height:13.5pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">}</span></span></span></span></span></span></span></p>
+
+
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="json ml-2">
+                                <div style="background-color:#212121;color:#f8f8f2;font-family:IBMPlexMono, 'Courier New', monospace, Consolas, 'Courier New', monospace;font-size:12px;font-weight:normal;line-height:18px;">
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif"><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">{</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;code&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">200</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;data&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">[</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">{</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;id&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#ce9178">&quot;0dace234-6095-4432-be07-b74a81d3648f&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;userId&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">10001105</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;roundId&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">919</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;betPoint&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">10</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;betType&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">2</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;userPoint&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">220</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;roomId&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">100000</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;betTime&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#ce9178">&quot;2024-04-01 06:22:12&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;betOdd&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">-0.8699999999999999</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;winType&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">2</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;profit&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">10</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;useFinalOdd&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">0</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;refund&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">0</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;finalOdd&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">0</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;reward&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">18.7</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;grossCom&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">0</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">,</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#9cdcfe">&quot;status&quot;</span></span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">:</span></span></span> <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:#b5cea8">1</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">}</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; <span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">]</span></span></span></span></span></span></p>
+
+                                    <p><span style="font-size:11pt"><span style="background-color:#212121"><span style="font-family:Calibri,sans-serif"><span style="font-size:9.0pt"><span style="font-family:&quot;Courier New&quot;"><span style="color:gainsboro">}</span></span></span></span></span></span></p>
+
+                                    <p>&nbsp;</p>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li><code>Data interpretation </code>
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 900px">
+                                        <thead>
+                                        <tr>
+                                            <th>Data param</th>
+                                            <th>Descripes</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>id</code></td> <td> A string that represents the unique identifier of a bet</tr>
+                                        <tr> <td><code>userId</code></td> <td>The identifier of the user who placed the bet.</td> </tr>
+                                        <tr> <td><code>roundId</code></td> <td>The identifier of the round in which the bet was placed.</td> </tr>
+                                        <tr> <td><code>betPoint</code></td> <td>The points that the user bet.</td> </tr>
+                                        <tr> <td><code>betType</code></td> <td>The type of bet that the user placed.<code> 0: Wala; 1: draw; 2: meron </code> </td> </tr>
+                                        <tr> <td><code>userPoint</code></td> <td>The points that the user had when they placed the bet.</td> </tr>
+                                        <tr> <td><code>roomId</code></td> <td>The identifier of the room in which the bet was placed.</td> </tr>
+                                        <tr> <td><code>betTime</code></td> <td>The time when the bet was placed,<code> UTC time </code> </td> </tr>
+                                        <tr> <td><code>betOdd</code></td> <td>The odds of the bet when it was placed.</td> </tr>
+                                        <tr> <td><code>winType</code></td> <td>The type of win for the bet.  <code>0: Wala; 1: draw; 2: meron</code> </td> </tr>
+                                        <tr> <td><code>profit</code></td> <td>The profit made from the bet.</td> </tr>
+                                        <tr> <td><code>useFinalOdd</code></td> <td>A boolean indicating whether the final odds were used for the bet.</td> </tr>
+                                        <tr> <td><code>refund</code></td> <td>The amount refunded from the bet.</td> </tr>
+                                        <tr> <td><code>finalOdd</code></td> <td>The final odds of the bet.</td> </tr>
+                                        <tr> <td><code>reward</code></td> <td> The reward from the bet.</td> </tr>
+                                        <tr> <td><code>grossCom</code></td> <td>The gross commission from the bet.</td> </tr>
+                                        <tr> <td><code>status</code></td> <td>The status of the bet,<code> 0: cancel bet; 1: normal bet</code> </td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code>Error code </code>: Following error code may be returned
+                            <ul>
+                                <li>
+                                    <table class="table table-bordered table-striped" style="max-width: 500px">
+                                        <thead>
+                                        <tr>
+                                            <th>error Code</th>
+                                            <th>Http status Code</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> <td><code>10306</code></td> <td><code>500</code></td> </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <hr class="divider">
 
                 <h1 id="all_error_list">Status Code</h1>
                 <section id="http_status_code">
@@ -1907,6 +2117,10 @@
                             <tr>
                                 <td><code>10306</code></td>
                                 <td>User Not a player</td>
+                            </tr>
+                            <tr>
+                                <td><code>10330</code></td>
+                                <td>DateTime Field  invalid  format, format must be following Y-m-d H:i:s</td>
                             </tr>
                         </table>
                     </ol>
